@@ -1,0 +1,1 @@
+window.CalculatorApp = angular.module('AngularjsCalculatorApp', []);
