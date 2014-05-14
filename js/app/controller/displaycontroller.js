@@ -1,22 +1,22 @@
-CalculatorApp.controller('DisplayController', function($scope) {
-	$scope.display = window.display;
+CalculatorApp.controller('DisplayController', function($scope, Display) {
+	$scope.display = Display;
 
 	$scope.$on('changeDisplayValue', function (scopeDetails, value) {
-		if(value === "." && this.display.currentDisplayValue.indexOf(".") != -1){
+		if(value === "." && $scope.display.currentDisplayValue.indexOf(".") != -1){
 			//do nothing
 		}else{
-			this.display.currentDisplayValue += value;
+			$scope.display.currentDisplayValue += value;
 		}
-		$scope.calculatorModel.data.displayData = this.display.currentDisplayValue;
+		$scope.calculator.data.displayData = $scope.display.currentDisplayValue;
     });
 	
 	$scope.$on('clearDisplayValue', function () {
-		this.display.currentDisplayValue = "";
-		$scope.calculatorModel.data.displayData = this.display.currentDisplayValue;
+		$scope.display.currentDisplayValue = "";
+		$scope.calculator.data.displayData = $scope.display.currentDisplayValue;
     });
 	
 	$scope.$on('setFinalAnswer', function (scopeDetails, value) {
-		this.display.currentDisplayValue = value;
-		$scope.calculatorModel.data.displayData = this.display.currentDisplayValue;
+		$scope.display.currentDisplayValue = value;
+		$scope.calculator.data.displayData = $scope.display.currentDisplayValue;
     });
 });

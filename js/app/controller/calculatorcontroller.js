@@ -1,12 +1,12 @@
-CalculatorApp.controller('CalculatorController', function($scope, CalculatorService) {
-	$scope.calculatorModel = window.calculator;
-	$scope.$watch('calculatorModel.currentButton', function (button) {
+CalculatorApp.controller('CalculatorController', function($scope, Calculator, CalculatorService) {
+	$scope.calculator = Calculator;
+	$scope.$watch('calculator.currentButton', function (button) {
 		 if(typeof(button.displayValue) !== "undefined"){
-			 $scope.calculatorModel.currentButton = {};
-			 var eventDetails = CalculatorService.getEventDetails(button, $scope.calculatorModel.data);
+			 $scope.calculator.currentButton = {};
+			 var eventDetails = CalculatorService.getEventDetails(button, $scope.calculator.data);
 			 if(eventDetails.eventName !== "" && eventDetails.eventName !== "undefined"){
 				 if(eventDetails.eventName === "setFinalAnswer"){
-					 eventDetails = CalculatorService.checkOperatorConditions(button, $scope.calculatorModel.data);
+					 eventDetails = CalculatorService.checkOperatorConditions(button, $scope.calculator.data);
 				 }
 				 $scope.$broadcast(eventDetails.eventName, eventDetails.data);
 			 }
