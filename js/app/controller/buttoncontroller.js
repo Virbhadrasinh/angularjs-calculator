@@ -1,6 +1,6 @@
-CalculatorApp.controller('ButtonController', function($scope) {
-	$scope.buttons = window.buttons;
+CalculatorApp.controller('ButtonController', function($scope, Buttons) {
+	$scope.buttons = Buttons;
 	$scope.buttonClicked = function(button) {
-		$scope.calculatorModel.currentButton = button;
+		$scope.calculator.currentButton = button;
 	}
 });

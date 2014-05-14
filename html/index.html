@@ -4,24 +4,24 @@
 	<title>Calculator</title>
 	<link rel="stylesheet" href="./../css/common.css">
 	<script src="./../js/lib/angular.js"></script>
-	<script src="./../js/utility/sampledata.js"></script>
 </head>
 <body ng-app="AngularjsCalculatorApp">
 	<div class="theme-calculator" ng-controller="CalculatorController">
-		<div class="display-container" ng-controller="DisplayController">
-			<div class="container">
-				<input type="text" class="theme-display" disabled="disabled"
-					readonly="readonly" ng-model="display.currentDisplayValue">
-			</div>
+		<div class="display-container" ng-controller="DisplayController" >
+			<cal-display></cal-display>
 		</div>
 		<div class="button-container" ng-controller="ButtonController">
-			<div class="container">
-				<div class="theme-button" ng-repeat="button in buttons"
-					ng-click="buttonClicked(this.button)">{{button.displayValue}}</div>
-			</div>
+			<cal-button></cal-button>
 		</div>
 	</div>
 	<script src="./../js/app/app.js"></script>
+
+	<script src="./../js/app/directive/display.js"></script>
+	<script src="./../js/app/directive/button.js"></script>
+
+	<script src="./../js/app/factory/buttons.js"></script>
+	<script src="./../js/app/factory/display.js"></script>
+	<script src="./../js/app/factory/calculator.js"></script>
 	
 	<script src="./../js/app/service/calculatorservice.js"></script>
 	<script src="./../js/app/service/mathservice.js"></script>

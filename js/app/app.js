@@ -1,1 +1,1 @@
-window.CalculatorApp = angular.module('AngularjsCalculatorApp', []);
+var CalculatorApp = angular.module('AngularjsCalculatorApp', []);
